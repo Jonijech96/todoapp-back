@@ -1,0 +1,43 @@
+siempre express
+
+https://sequelize.org/docs/v6/getting-started/
+
+para sequelize se necesita instalar drivers de la base de datos
+
+es un orm 
+permite hacer consultas desde javascript sin usar sql
+
+
+mvc
+
+programacion dentro de source
+
+laravel
+
+psql
+
+sino en dbeaver
+
+click derecho editor sql abrir script en la base de datos script
+
+create database todoapp with owner postgress;
+
+
+
+\l
+\c todoapp para conectarse a la base de datos
+
+\dt muestra las tablas que tiene la base de datos
+
+\d users para ver lo que tiene esa tabla
+
+
+php - laravel
+go
+
+dart
+
+tipescript
+
+guardar en 
+

@@ -15,7 +15,8 @@ db.authenticate()
 
 initModels();
 //vamos a usar el metodo sinc de nuestra bd
-db.sync()
+//db.sync({force: true})
+db.sync({ alter: true })
   .then(() => console.log("base de datos sincronizada"))
   .catch((error) => console.log(error));
 

@@ -41,3 +41,31 @@ tipescript
 
 guardar en 
 
+project.hasMany(otroProject, {
+  foreingKey: "projectId",
+  sourceKey: "id",
+})
+project.belongTo(otroProject, {
+  foreingKey: "projectId",
+  targetId: "id",
+})
+
+
+insertar info desde el mismo proyecto
+
+field para renombrar campo
+
+alter:true
+force: true
+
+references en la llave foranea
+references: {
+  model: Users,
+  key: id,
+}
+
+hasOne uno a uno
+hasMany uno a muchos
+belongTo pertenece a 
+
+en el json de respuesta aparece lo del as 

@@ -69,3 +69,7 @@ hasMany uno a muchos
 belongTo pertenece a 
 
 en el json de respuesta aparece lo del as 
+
+insertar informacion y luego consultarla con endpoints
+
+select * from all  => findAll

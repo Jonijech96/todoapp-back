@@ -1,5 +1,5 @@
 //vamos a importar todos nuestros modelos creados
-const Todos = require("./todos.models");
+const Todos = require("./todos.model");
 const Users = require("./users.model");
 const Categories = require("./categories.model");
 const TodosCategories = require("./todos-categories.model");

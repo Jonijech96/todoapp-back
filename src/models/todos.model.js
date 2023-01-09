@@ -1,6 +1,7 @@
 const db = require("../utils/database");
 
 const { DataTypes } = require("sequelize");
+const Users = require("./users.model");
 
 const Todos = db.define("todos", {
   id: {
@@ -25,6 +26,10 @@ const Todos = db.define("todos", {
     type: DataTypes.INTEGER,
     allowNull: false,
     field: "user_id",
+    references: {
+      model: Users,
+      key: "id",
+    }
   },
 });
 

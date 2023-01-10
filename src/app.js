@@ -4,6 +4,7 @@ const db = require("./utils/database");
 const initModels = require("./models/init.model");
 const Users = require("./models/users.model");
 const Todos = require("./models/todos.model");
+const UserRouter = require("./routes/users.routes");
 
 // crear instancia express
 const app = express();
@@ -27,6 +28,8 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Bienvenido al servidor" });
 });
 
+app.use("/api/v1", UserRouter);
+
 app.get("/users", async (req, res) => {
   try {
     const result = await Users.findAll();
@@ -36,15 +39,14 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.get("/todos", async (req,res)=>{
+app.get("/todos", async (req, res) => {
   try {
     const result = await Todos.findAll();
     res.status(200).json(result);
   } catch (error) {
     console.log(error.message);
   }
-
-})
+});
 
 app.get("/users/:id", async (req, res) => {
   try {
@@ -57,15 +59,15 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
-app.get("/todos/:id", async (req,res)=>{
+app.get("/todos/:id", async (req, res) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const result = await Todos.findByPk(id);
     res.status(200).json(result);
   } catch (error) {
     console.log(error.message);
   }
-})
+});
 
 app.get("/user/username/:username", async (req, res) => {
   try {
@@ -87,7 +89,7 @@ app.post("/users", async (req, res) => {
   }
 });
 
-app.post("/todos", async (req,res)=>{
+app.post("/todos", async (req, res) => {
   try {
     const todos = req.body;
     const result = await Todos.create(todos);
@@ -95,7 +97,7 @@ app.post("/todos", async (req,res)=>{
   } catch (error) {
     res.status(400).json(error.message);
   }
-})
+});
 
 app.put("/users/:id", async (req, res) => {
   try {
@@ -108,38 +110,38 @@ app.put("/users/:id", async (req, res) => {
   }
 });
 
-app.put("/todos/:id", async (req,res)=>{
+app.put("/todos/:id", async (req, res) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const field = req.body;
-    const result = await Todos.update(field,{where:{id}});
+    const result = await Todos.update(field, { where: { id } });
     res.status(201).json(result);
   } catch (error) {
     res.status(400).json(error.message);
   }
-})
+});
 
 app.delete("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const result = await Users.destroy({ where: { id } });
     res.status(200).json(result);
+    //validar que el usuario no tenga tareas
+    //si tiene responder que no se puede, sino eliminar
   } catch (error) {
     res.status(400).json(error.message);
   }
 });
 
-app.delete("/todos/:id", async (req,res)=>{
-  
+app.delete("/todos/:id", async (req, res) => {
   try {
-    const {id} = req.params;
-    const result = await Todos.destroy({where:{id}});
+    const { id } = req.params;
+    const result = await Todos.destroy({ where: { id } });
     res.status(201).json(result);
-    
   } catch (error) {
     res.status(400).json(error.message);
   }
-})
+});
 
 app.listen(PORT, () => {
   console.log(`servidor corriendo en el puerto ${PORT}`);

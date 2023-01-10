@@ -77,3 +77,17 @@ select * from all  => findAll
 
 consultas simples
 
+mvc
+modelo vista controlador
+
+proyectos monoliticos
+
+con laravel se puede hacer una api
+
+express se basa en midlewares 
+
+de aplicacion son los que usan app.use
+
+midlewares de rutas
+
+https://github.com/ian-academlo/todo19

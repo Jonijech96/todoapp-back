@@ -1,3 +1,4 @@
+const Todos = require("../models/todos.model");
 const Users = require("../models/users.model");
 
 class UserServices {
@@ -18,6 +19,23 @@ class UserServices {
       throw error;
     }
   }
+
+  static async getWithTasks(id) {
+    try {
+      const result = await Users.findOne({
+        where: { id },
+        attributes: ["username", "email"],
+        include: {
+          model: Todos,
+          as: "task",
+        },
+      });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async create(user) {
     try {
       const result = await Users.create(user);

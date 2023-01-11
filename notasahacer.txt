@@ -91,3 +91,56 @@ de aplicacion son los que usan app.use
 midlewares de rutas
 
 https://github.com/ian-academlo/todo19
+
+
+hacerlo con promesas
+
+
+const todosCategories = [
+  { categoryId: 1, todoId: 1 },
+  { categoryId: 2, todoId: 1 },
+  { categoryId: 4, todoId: 1 },
+  { categoryId: 1, todoId: 2 },
+  { categoryId: 7, todoId: 2 },
+  { categoryId: 10, todoId: 2 },
+  { categoryId: 3, todoId: 2 },
+  { categoryId: 5, todoId: 3 },
+  { categoryId: 6, todoId: 3 },
+  { categoryId: 1, todoId: 4 },
+  { categoryId: 3, todoId: 4 },
+];
+
+
+db.sync({force: true,})
+  .then(()=>{
+  console.log('exito');
+  //create
+  //findOne, findAll, findByPk
+  //update
+  //destroy
+  users.forEach((users)=> Users.create(users));
+  
+  setTimeout(() => {
+    todos.forEach((tasks)=>Todos.create(tasks))
+  }, 100);
+  setTimeout(() => {
+    categories.forEach((category)=>Categories.create(category))
+  }, 200);
+  setTimeout(() => {
+    todosCategories.forEach((todoCat)=>TodosCategories.create(todoCat))
+  }, 300);
+})  
+  .catch((error)=>console.log(error));
+
+
+el as nos sirve para cuando anidemos tablas
+
+
+attributes: ["username", "email"],
+attributes: {
+  excludes: [password]
+},
+
+una tarea con id traer tareas con categorias
+
+endpoint de tareas con sus categorias

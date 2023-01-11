@@ -50,10 +50,22 @@ const updateUser = async (req, res) => {
   }
 };
 
+const getUserWithTasks = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await UserServices.getWithTasks(id);
+    //por defecto se responde status 200
+    res.json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
   deleteUser,
   updateUser,
+  getUserWithTasks,
 };

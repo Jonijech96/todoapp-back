@@ -23,7 +23,10 @@ const getTodoWithCategories = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await TodosServices.getWithCategories(id);
-    res.json(result);
+    res.json({
+      message: "Enviando tareas con categorias",
+      data: result,
+    });
   } catch (error) {
     res.status(400).json(error.message);
   }

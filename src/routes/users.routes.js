@@ -6,6 +6,7 @@ const {
   getUserById,
   updateUser,
   getUserWithTasks,
+  getUserWithCategories,
 } = require("../controllers/users.controller");
 
 const router = Router();
@@ -20,5 +21,8 @@ router.put("/users/:id", updateUser);
 
 //obtener ususario con sus tareas
 router.get("/users/:id/todos", getUserWithTasks);
+
+//obtener todas las categorias
+router.get("/users/:id/categories", getUserWithCategories);
 
 module.exports = router;

@@ -144,3 +144,6 @@ attributes: {
 una tarea con id traer tareas con categorias
 
 endpoint de tareas con sus categorias
+
+
+hacer un usersCategories

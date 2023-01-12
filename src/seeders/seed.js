@@ -18,40 +18,33 @@ const todos = [
 ];
 
 const categories = [
-  { name: "personal" },
-  { name: "educacion" },
-  { name: "salud" },
-  { name: "trabajo" },
-  { name: "hogar" },
-  { name: "cocina" },
-  { name: "deporte" },
-  { name: "ocio" },
-  { name: "financiero" },
-  { name: "entretenimiento" },
+  { name: "personal", userId: 1 },
+  { name: "educacion", userId: 2 },
+  { name: "salud", userId: 3 },
+  { name: "trabajo", userId: 3 },
+  { name: "hogar", userId: 2 },
+  { name: "cocina", userId: 2 },
+  { name: "deporte", userId: 2 },
+  { name: "ocio", userId: 2 },
+  { name: "financiero", userId: 2 },
+  { name: "entretenimiento", userId: 2 },
 ];
 
 const todosCategories = [
   { categoryId: 1, todoId: 1 },
-  { categoryId: 2, todoId: 1 },
-  { categoryId: 4, todoId: 1 },
-  { categoryId: 1, todoId: 2 },
-  { categoryId: 7, todoId: 2 },
-  { categoryId: 10, todoId: 2 },
-  { categoryId: 3, todoId: 2 },
-  { categoryId: 5, todoId: 3 },
-  { categoryId: 6, todoId: 3 },
-  { categoryId: 1, todoId: 4 },
-  { categoryId: 3, todoId: 4 },
+  { categoryId: 2, todoId: 2 },
+  { categoryId: 3, todoId: 3 },
+  { categoryId: 4, todoId: 4 },
 ];
 
 db.sync({ force: true }).then(() => {
   console.log("inyectando");
   users.forEach((user) => Users.create(user));
   setTimeout(() => {
-    todos.forEach((todo) => Todos.create(todo));
+    categories.forEach((category) => Categories.create(category));
   }, 100);
   setTimeout(() => {
-    categories.forEach((todo) => Categories.create(todo));
+    todos.forEach((todo) => Todos.create(todo));
   }, 200);
   setTimeout(() => {
     todosCategories.forEach((todo) => TodosCategories.create(todo));

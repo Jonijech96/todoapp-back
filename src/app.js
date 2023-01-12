@@ -5,7 +5,7 @@ const initModels = require("./models/init.model");
 const Users = require("./models/users.model");
 const Todos = require("./models/todos.model");
 const UserRouter = require("./routes/users.routes");
-const TodoRouter = require('./routes/todos.routes');
+const TodoRouter = require("./routes/todos.routes");
 
 // crear instancia express
 const app = express();

@@ -6,9 +6,13 @@ const Users = require("./models/users.model");
 const Todos = require("./models/todos.model");
 const UserRouter = require("./routes/users.routes");
 const TodoRouter = require("./routes/todos.routes");
+const cors = require("cors");
+const authRoutes = require("./routes/auth.routes");
 
 // crear instancia express
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 const PORT = 8000;
 
@@ -31,6 +35,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1", UserRouter);
 app.use("/api/v1", TodoRouter);
+app.use("/api/v1", authRoutes);
 
 app.get("/users", async (req, res) => {
   try {

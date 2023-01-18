@@ -8,13 +8,14 @@ const UserRouter = require("./routes/users.routes");
 const TodoRouter = require("./routes/todos.routes");
 const cors = require("cors");
 const authRoutes = require("./routes/auth.routes");
+require("dotenv").config();
 
 // crear instancia express
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-const PORT = 8000;
+const PORT = process.env.PORT;
 
 //probando la conexion a sequalize
 db.authenticate()

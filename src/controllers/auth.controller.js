@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const AuthService = require("../services/auth.services");
+require("dotenv").config();
 
 const userLogin = async (req, res) => {
   try {
@@ -12,8 +13,10 @@ const userLogin = async (req, res) => {
         username: response.result.username,
         id: response.result.id,
       };
-      const token = jwt.sign(data, "sharala", { algorithm: "HS512" });
-      // console.log(token);
+      const token = jwt.sign(data, process.env.JWT_SECRET, {
+        algorithm: "HS512",
+      });
+      console.log(data);
       data.token = token;
       res.json(data);
     } else {

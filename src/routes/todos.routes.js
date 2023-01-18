@@ -7,12 +7,13 @@ const {
   updateTodo,
   getTodoWithCategories,
 } = require("../controllers/todos.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
 
 const router = Router();
 
 // controladores
 
-router.get("/todos", getAllTodos);
+router.get("/todos", authMiddleware, getAllTodos);
 router.get("/todos/:id", getTodoById);
 router.delete("/todos/:id", deleteTodo);
 router.put("/todos/:id", updateTodo);

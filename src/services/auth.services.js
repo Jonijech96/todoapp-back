@@ -5,7 +5,7 @@ class AuthService {
     try {
       const result = await Users.findOne({ where: { email } });
       if (result) {
-        password === result.password
+        return password === result.password
           ? { isValid: true, result }
           : { isValid: false };
       }
